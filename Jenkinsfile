@@ -19,6 +19,7 @@ pipeline {
         }
         steps {
           container('jx-base') {
+            sh "cat /home/jenkins/.docker/config.json"
             sh "docker build -t $DOCKER_REGISTRY/$ORG/$APP_NAME:$PREVIEW_VERSION ."
             sh "docker push $DOCKER_REGISTRY/$ORG/$APP_NAME:$PREVIEW_VERSION"
           }
@@ -53,7 +54,6 @@ pipeline {
           container('jx-base') {
             sh "cat /home/jenkins/.docker/config.json"
             sh "docker build -t $DOCKER_REGISTRY/$ORG/$APP_NAME:\$(cat VERSION) ."
-            sh "docker login $DOCKER_REGISTRY -u admin -p admin"
             sh "docker push $DOCKER_REGISTRY/$ORG/$APP_NAME:\$(cat VERSION)"
           }
         }
