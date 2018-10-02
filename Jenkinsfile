@@ -6,6 +6,7 @@ pipeline {
       ORG               = 'kokwai'
       APP_NAME          = 'aspnet-app'
       CHARTMUSEUM_CREDS = credentials('jenkins-x-chartmuseum')
+    DEPLOY_NAMESPACE = "jx-staging"
     }
     stages {
       stage('CI Build and push snapshot') {
