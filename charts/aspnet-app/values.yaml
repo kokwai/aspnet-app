@@ -3,8 +3,8 @@
 # Declare variables to be passed into your templates.
 replicaCount: 1
 image:
-  repository: draft
-  tag: dev
+  repository: 10.0.0.150:5000/kokwai/aspnet-app
+  tag: 0.0.2
   pullPolicy: IfNotPresent
 service:
   name: aspnet-app
