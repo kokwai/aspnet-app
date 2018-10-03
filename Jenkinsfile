@@ -91,7 +91,7 @@ pipeline {
                 '''
               // release the helm chart
               sh 'jx step helm release'
-              sh 'jx step helm install aspnet-app-$(cat VERSION).tgz'
+              sh 'jx step helm install aspnet-app-$(cat ../../VERSION).tgz'
 
               // promote through all 'Auto' promotion Environments
               sh 'jx promote -b --all-auto --timeout 1h --version \$(cat ../../VERSION)'
