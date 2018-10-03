@@ -94,7 +94,7 @@ pipeline {
               sh 'pwd'
               sh 'ls -R'
               sh 'cat ../../VERSION'
-              sh 'jx step helm install ../aspnet-app'
+              sh 'jx step helm install ../aspnet-app --name aspnet-app'
 
               // promote through all 'Auto' promotion Environments
               sh 'jx promote -b --all-auto --timeout 1h --version \$(cat ../../VERSION)'
